@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PawPal AI - Welcome</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    /* Layout Wrapper */
+    .page-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+    
+    .left-visual {
+      flex: 1;
+      /* Remains transparent so the video shows through clearly on the left */
+    }
+    
+    .right-auth {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .left-visual {
+        display: none;
+      }
+      .right-auth {
+        width: 100%;
+      }
+    }
+    
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 450px;
+      background: rgba(245, 222, 179, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 20px 6px rgba(255, 165, 0, 0.5);
+      animation: glowAround 2s ease-in-out infinite alternate;
+    }
+
+    .auth-header {
+      color: #8b4513;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .auth-subtitle {
+      color: #5c3a21;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background: #8b4513;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 15px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn:hover {
+      background: #a0522d;
+      box-shadow: 0 0 10px #ffa500, 0 0 20px #ffa500;
+    }
+
+    .btn-secondary {
+      background: #5c3a21;
+    }
+
+    .btn-secondary:hover {
+      background: #6e4629;
+    }
+
+    .icon {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    @keyframes glowAround {
+      0% { box-shadow: 0 0 20px 6px rgba(87, 45, 25, 0.793); }
+      100% { box-shadow: 0 0 30px 10px rgba(87, 45, 25, 0.793); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="/static/video/dog_bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="page-wrapper">
+    <div class="left-visual"></div>
+    <div class="right-auth">
+      <div class="auth-container">
+        <div class="icon">🐾</div>
+        <div class="auth-header">PawPal AI</div>
+        <div class="auth-subtitle">Your personal AI Dog Care Assistant. Sign in to continue caring for your dog.</div>
+        <a href="/login" class="btn">Login</a>
+        <a href="/register" class="btn btn-secondary">Get Started</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Redirect if already logged in
+    if (localStorage.getItem("token")) {
+      window.location.href = "/chatbot";
+    }
+  </script>
+
+</body>
+</html>

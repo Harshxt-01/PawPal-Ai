@@ -1,0 +1,8 @@
+flask
+flask-cors
+google-genai
+pymongo
+PyJWT
+werkzeug
+python-dotenv
+gunicorn
