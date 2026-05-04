@@ -39,7 +39,7 @@ MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/pawpal")
 # -------------------------------------------------------------
 try:
     mongo_client = MongoClient(MONGO_URI)
-    db = mongo_client.get_database()
+    db = mongo_client.get_default_database(default="pawpal")
     users_collection = db["users"]
     chat_history_collection = db["chatHistory"]
     print("✅ Connected to MongoDB")
