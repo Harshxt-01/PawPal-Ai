@@ -57,9 +57,6 @@ if not gemini_api_key:
     print("GEMINI_API_KEY is missing. Please add it to .env")
     exit(1)
 
-print("Gemini API key loaded: YES")
-print("Key starts with:", gemini_api_key[:10])
-print("Key ends with:", gemini_api_key[-6:])
 
 ai_client = genai.Client(api_key=gemini_api_key)
 
